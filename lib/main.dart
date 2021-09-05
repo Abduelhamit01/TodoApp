@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todoapp2/UI/Intray/intray_page.dart';
+import 'models/global.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,8 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'ToDo App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          primarySwatch: Colors.grey,
+          dialogBackgroundColor: Colors.transparent),
       home: MyHomePage(title: 'Todo app'),
     );
   }
@@ -39,23 +41,49 @@ class _MyHomePageState extends State<MyHomePage> {
             body: Stack(children: <Widget>[
               TabBarView(
                 children: [
+                  IntrayPage(),
                   new Container(
-                    color: Colors.red[200],
+                    color: Colors.grey,
                   ),
                   new Container(
-                    color: Colors.orange,
-                  ),
-                  new Container(
-                    color: Colors.lightGreen,
+                    color: Colors.grey,
                   ),
                 ],
               ),
               Container(
-                height: 100,
-                color: Colors.white,
+                padding: EdgeInsets.only(left: 50),
+                height: 160,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(55),
+                      bottomRight: Radius.circular(55)),
+                  color: Colors.white,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text("Intray", style: intrayTitle),
+                    Container()
+                  ],
+                ),
+              ),
+              //Hier ist der Button eingefügt im Stack
+              Container(
+                height: 80,
+                width: 80,
+                margin: EdgeInsets.only(top: 120, left: MediaQuery
+                    .of(context)
+                    .size
+                    .width * 0.5 - 40),
+                child: FloatingActionButton(
+                  child: new Icon(Icons.add, size: 70),
+                  backgroundColor: Colors.red,
+                  onPressed: () {},
+                ),
               )
             ]),
             appBar: AppBar(
+              elevation: 0,
               title: new TabBar(
                 tabs: [
                   Tab(
@@ -68,11 +96,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     icon: new Icon(Icons.perm_identity),
                   ),
                 ],
-                labelColor: Colors.yellow,
-                unselectedLabelColor: Colors.blue,
+                labelColor: darkGreyColor,
+                unselectedLabelColor: Colors.red,
                 indicatorSize: TabBarIndicatorSize.label,
                 indicatorPadding: EdgeInsets.all(5.0),
+                indicatorColor: Colors.transparent,
               ),
+              backgroundColor: Colors.white,
             ),
             backgroundColor: Colors.white,
           ),
