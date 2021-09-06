@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      color: Colors.red,
+      color: Colors.blue,
       home: SafeArea(
         child: DefaultTabController(
           length: 3,
@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     .width * 0.5 - 40),
                 child: FloatingActionButton(
                   child: new Icon(Icons.add, size: 70),
-                  backgroundColor: Colors.red,
+                  backgroundColor: Colors.blue,
                   onPressed: () {},
                 ),
               )
@@ -97,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
                 labelColor: darkGreyColor,
-                unselectedLabelColor: Colors.red,
+                unselectedLabelColor: Colors.blue,
                 indicatorSize: TabBarIndicatorSize.label,
                 indicatorPadding: EdgeInsets.all(5.0),
                 indicatorColor: Colors.transparent,
